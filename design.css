@@ -1,0 +1,123 @@
+/* General body styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #6aea9b;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* Header styles */
+header {
+    background-color: #4a97e8;
+    color: #e86161;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    padding: 0;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline;
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    nav ul li {
+        margin: 0 10px;
+    }
+}
+.service-grid a {
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Inherits text color from parent elements */
+}
+
+.service-item {
+    display: block; /* Ensures the link uses the full block space */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.service-item:hover {
+    transform: translateY(-5px); /* Adds a subtle lift effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Enhances the shadow */
+}
+
+.service-item img {
+    width: 100%;
+    height: 200px; /* Adjust height as needed */
+    object-fit: cover;
+}
+
+.service-info {
+    padding: 10px;
+}
+
+.service-info h3 {
+    margin: 0;
+    color: #333;
+}
+
+.service-info p {
+    color: #666;
+    font-size: 0.9em;
+}
+
+nav a:focus, nav a:hover {
+    outline: none; /* Removes default focus outline */
+    background-color: #004080; /* Adds a subtle background on focus or hover */
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    header img {
+        margin-bottom: 10px; /* Adds space between the logo and nav on smaller screens */
+    }
+
+    .service-item img {
+        height: 150px; /* Smaller images on tablet-sized devices */
+    }
+}
