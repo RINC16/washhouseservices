@@ -1,0 +1,20 @@
+{
+  "name": "WashHouse Services",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
+  "postCreateCommand": "npm install",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "WashHouse web app",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  }
+}

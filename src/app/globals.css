@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f9fc;
+  --foreground: #0d2247;
+  --navy: #102a56;
+  --navy-deep: #091b39;
+  --blue: #3f82f7;
+  --blue-dark: #2166dc;
+  --blue-soft: #edf4ff;
+  --border: #dce5f2;
+  --muted: #5e718f;
+  --surface: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-navy: var(--navy);
+  --color-brand-deep: var(--navy-deep);
+  --color-brand-blue: var(--blue);
+  --color-brand-blue-dark: var(--blue-dark);
+  --color-brand-blue-soft: var(--blue-soft);
+  --color-brand-border: var(--border);
+  --color-brand-muted: var(--muted);
+  --color-brand-surface: var(--surface);
+  --font-sans: var(--font-geist-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  outline-color: var(--blue);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #cfe0ff;
+  color: var(--navy-deep);
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.section-space {
+  padding-block: clamp(4.5rem, 8vw, 7.5rem);
+}
+
+.card-shadow {
+  box-shadow: 0 18px 45px rgba(16, 42, 86, 0.08);
+}
+
+@media (min-width: 768px) {
+  .page-shell {
+    width: min(1180px, calc(100% - 4rem));
+  }
+}
