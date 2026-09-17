@@ -37,13 +37,29 @@ export function AuthForm({ nextPath = "/dashboard" }: { nextPath?: string }) {
         return;
       }
 
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data: signInData, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
+      const { data: profile, error: profileError } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("id", signInData.user.id)
+        .maybeSingle();
+      if (profileError) throw profileError;
+
       const safeNextPath =
         nextPath.startsWith("/") && !nextPath.startsWith("//")
           ? nextPath
           : "/dashboard";
-      router.push(safeNextPath);
+      const isAdmin = profile?.role === "admin";
+      const destination = isAdmin
+        ? safeNextPath.startsWith("/admin")
+          ? safeNextPath
+          : "/admin"
+        : safeNextPath.startsWith("/admin")
+          ? "/dashboard"
+          : safeNextPath;
+
+      router.push(destination);
       router.refresh();
     } catch (error) {
       setErrorMessage(error instanceof Error ? error.message : "Authentication failed. Please try again.");
